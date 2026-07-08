@@ -8,11 +8,11 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          charcoal: '#FFFFFF',    // Fixed: Main text color is now pure white
-          cream: '#E0F2FE',       // Fixed: Background color is now a beautiful light blue
-          orange: '#0284C7',      // Optional: Changed the accent orange to a deep sky blue to match the theme
-          mutedDark: '#F8FAFC',   // Fixed: Secondary text is now a very light slate gray/white
-          mutedLight: '#E2E8F0'   // Fixed: Light borders/labels are now a soft slate gray
+          charcoal: '#0F172A',    // Fixed: Deep slate/navy for crisp, highly readable main headers
+          cream: '#E0F2FE',       // Kept: Your beautiful light blue background
+          orange: '#0284C7',      // Kept: Deep sky blue accent for buttons/links
+          mutedDark: '#334155',   // Fixed: Medium dark slate for clear paragraph descriptions
+          mutedLight: '#64748B'   // Fixed: Clean slate gray for subtitles and small tags
         }
       },
       fontFamily: {
