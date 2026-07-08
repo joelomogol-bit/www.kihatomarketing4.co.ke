@@ -1,5 +1,6 @@
-import './globals.css';
+ import './globals.css';
 import React from 'react';
+import Navbar from '@/components/Navbar'; // Added: Import the navbar component
 
 export const metadata = {
   title: 'Premium Brand Engine Portfolio',
@@ -15,6 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
       </head>
       <body className="bg-brand-charcoal text-brand-cream selection:bg-brand-orange selection:text-brand-cream antialiased font-sans">
+        <Navbar /> {/* Added: This renders Joe Kihato Marketing navbar at the top of every page */}
         {children}
       </body>
     </html>
