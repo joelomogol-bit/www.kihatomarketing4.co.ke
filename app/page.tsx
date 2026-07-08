@@ -1,4 +1,4 @@
-import { getSupabaseServer } from '@/lib/supabase';
+ import { getSupabaseServer } from '@/lib/supabase';
 import { DarkSection, CreamSection, Eyebrow } from '@/components/LayoutBlocks';
 import LeadMagnet from '@/components/LeadMagnet';
 import ContactForm from '@/components/ContactForm';
@@ -34,14 +34,19 @@ export default async function HomePage() {
     hero_subheading: 'I build high-converting digital infrastructure and content engines for modern brands.',
     about_headline: 'Crafting digital leverage.',
     about_body: 'Story text here...',
-    whatsapp_number: '1234567890',
-    phone: '+1234567890',
+    whatsapp_number: '254116628626', // Updated: Formatted fallback with Kenya routing prefix
+    phone: '+254116628626',           // Updated: Formatted phone line fallback
     email: 'hello@example.com',
     office_address: 'Remote / New York',
     meetings_note: 'Meetings by appointment only.'
   };
 
   const currentSettings = settings || fallbackSettings;
+
+  // Formatting utility to ensure standard phone syntax doesn't break the wa.me routing URL template
+  const cleanWhatsappNumber = currentSettings.whatsapp_number.startsWith('0') 
+    ? `254${currentSettings.whatsapp_number.slice(1)}` 
+    : currentSettings.whatsapp_number;
 
   return (
     <main className="overflow-x-hidden">
@@ -59,7 +64,7 @@ export default async function HomePage() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-16">
             <a 
-              href={`https://wa.me/${currentSettings.whatsapp_number}`}
+              href={`https://wa.me/${cleanWhatsappNumber}`} // Fixed: Uses the cleaned up routing parameter variable
               target="_blank"
               rel="noopener noreferrer"
               className="bg-brand-orange text-brand-cream px-8 py-4 rounded-full font-medium tracking-wide hover:bg-opacity-90 transition flex items-center justify-center gap-2 text-sm"
