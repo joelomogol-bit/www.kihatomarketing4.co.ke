@@ -1,4 +1,4 @@
-import { getSupabaseServer } from '@/lib/supabase';
+ import { getSupabaseServer } from '@/lib/supabase';
 import { CreamSection, Eyebrow } from '@/components/LayoutBlocks';
 import Link from 'next/link';
 
@@ -6,7 +6,8 @@ export const revalidate = 60;
 
 export default async function BlogIndexPage() {
   const supabase = getSupabaseServer();
-  const { data: posts } = await supabase.from('posts').order('published_at', { ascending: false });
+  // Fixed: Added .select('*') to resolve the PostgrestQueryBuilder type error
+  const { data: posts } = await supabase.from('posts').select('*').order('published_at', { ascending: false });
 
   return (
     <main className="bg-brand-cream min-h-screen text-brand-charcoal">
