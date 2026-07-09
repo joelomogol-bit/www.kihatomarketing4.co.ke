@@ -21,21 +21,21 @@ export default function ContactPage() {
           
           {/* Direct Quick Action Button Row */}
           <div className="flex flex-wrap gap-4">
-            <a 
+            <a  
               href="https://wa.me/254116628626"
               className="bg-[#0088CC] hover:bg-[#0077B3] text-white font-medium text-sm px-6 py-3.5 rounded-xl transition inline-flex items-center gap-2"
             >
               <MessageSquare size={16} />
               <span>Chat on WhatsApp</span>
             </a>
-            <a 
+            <a  
               href="tel:0116628626"
               className="border border-white/20 hover:border-white/40 text-white font-medium text-sm px-6 py-3.5 rounded-xl transition inline-flex items-center gap-2"
             >
               <Phone size={16} />
               <span>Call Joe</span>
             </a>
-            <a 
+            <a  
               href="mailto:hello@kihatomarketing.co.ke"
               className="border border-white/20 hover:border-white/40 text-white font-medium text-sm px-6 py-3.5 rounded-xl transition inline-flex items-center gap-2"
             >
@@ -48,9 +48,9 @@ export default function ContactPage() {
         {/* Hero Banner Image Box */}
         <div className="relative w-full aspect-[4/5] bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-white/5">
           <img 
-            src="/images/contact-hero.jpg" 
+            src="/images/joe-contact.jpg" 
             alt="Joe Kihato - Marketing Strategist" 
-            className="w-full h-full object-cover opacity-85"
+            className="w-full h-full object-cover object-top opacity-90"
           />
           <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
             <span className="text-xs uppercase tracking-widest text-[#0088CC] font-bold mb-1">Available for Contracts</span>
@@ -150,10 +150,10 @@ export default function ContactPage() {
             Meetings by appointment only. Message me first on WhatsApp to set a time.
           </p>
 
-          <a 
-            href="https://maps.google.com" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a  
+            href="https://maps.google.com"  
+            target="_blank"  
+            rel="noopener noreferrer"  
             className="border border-white/20 hover:bg-white/5 text-white text-xs font-medium tracking-wide px-5 py-3 rounded-lg transition inline-flex items-center gap-2"
           >
             <MapPin size={14} />
@@ -162,10 +162,10 @@ export default function ContactPage() {
         </div>
 
         <div className="lg:col-span-7 bg-[#070B19] border border-white/10 rounded-2xl overflow-hidden aspect-video relative shadow-xl">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.023258529323!2d36.9248455!3d-1.1764687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f3f6280436cf3%3A0x600100f9eb11c471!2sKenyatta%20University!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske" 
-            className="w-full h-full border-0 grayscale opacity-80 contrast-125 invert" 
-            allowFullScreen={false} 
+          <iframe  
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.023258529323!2d36.9248455!3d-1.1764687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f3f6280436cf3%3A0x600100f9eb11c471!2sKenyatta%20University!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske"  
+            className="w-full h-full border-0 grayscale opacity-80 contrast-125 invert"  
+            allowFullScreen={false}  
             loading="lazy"
           />
         </div>
@@ -192,9 +192,9 @@ export default function ContactPage() {
               { name: 'Facebook', handle: 'joe.kihato' },
               { name: 'YouTube', handle: '@joekihatomarketing' }
             ].map((social) => (
-              <a 
-                key={social.name} 
-                href="#" 
+              <a  
+                key={social.name}  
+                href="#"  
                 className="bg-[#0A1128] p-6 rounded-xl border border-white/5 hover:border-[#0088CC]/40 transition text-center group"
               >
                 <p className="font-bold text-white group-hover:text-[#0088CC] transition-colors mb-1">{social.name}</p>
