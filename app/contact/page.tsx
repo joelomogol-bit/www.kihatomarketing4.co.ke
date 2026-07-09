@@ -1,5 +1,6 @@
-import React from 'react';
-import { MessageSquare, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
+ import React from 'react';
+import Link from 'next/link'; // Added this import to fix the build error!
+import { MessageSquare, Phone, Mail, MapPin } from 'lucide-react';
 
 export default function ContactPage() {
   return (
@@ -46,17 +47,14 @@ export default function ContactPage() {
 
         {/* Hero Banner Image Box */}
         <div className="relative w-full aspect-[4/5] bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-white/5">
-          {/* REPLACE 'src' VALUE LATER WITH YOUR ACTUAL IMAGE PATH */}
           <img 
             src="/images/contact-hero.jpg" 
             alt="Joe Kihato - Marketing Strategist" 
             className="w-full h-full object-cover opacity-85"
             onError={(e) => {
-              // Fallback placeholder graphic if image file doesn't exist yet
               e.currentTarget.style.display = 'none';
             }}
           />
-          {/* Temporary visual box highlight card to stand-in if image path is empty */}
           <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
             <span className="text-xs uppercase tracking-widest text-[#0088CC] font-bold mb-1">Available for Contracts</span>
             <p className="text-sm text-white/60">Ruiru, Nairobi, Kenya Hub</p>
@@ -132,7 +130,6 @@ export default function ContactPage() {
             Find me in Nairobi<span className="text-[#0088CC]">.</span>
           </h2>
 
-          {/* Description Specification Table Elements */}
           <div className="border-t border-white/10 divide-y divide-white/10 text-sm mb-8">
             <div className="py-4 grid grid-cols-3">
               <span className="text-xs uppercase tracking-wider text-[#0088CC] font-bold">BUILDING</span>
@@ -167,9 +164,7 @@ export default function ContactPage() {
           </a>
         </div>
 
-        {/* Interactive / Map Box Wrapper Frame */}
         <div className="lg:col-span-7 bg-[#070B19] border border-white/10 rounded-2xl overflow-hidden aspect-video relative shadow-xl">
-          {/* Embedded Mock Placeholder Google Map Frame */}
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.023258529323!2d36.9248455!3d-1.1764687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f3f6280436cf3%3A0x600100f9eb11c471!2sKenyatta%20University!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske" 
             className="w-full h-full border-0 grayscale opacity-80 contrast-125 invert" 
@@ -192,7 +187,6 @@ export default function ContactPage() {
             Join thousands of growth-minded creators across multiple platforms. Come for the marketing strategies, stay for the engineering execution.
           </p>
 
-          {/* Social Platform Link Cards */}
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
             {[
               { name: 'LinkedIn', handle: '@joekihato' },
@@ -212,7 +206,6 @@ export default function ContactPage() {
             ))}
           </div>
 
-          {/* Floating Callout Strip */}
           <div className="bg-[#0A1128] border border-white/5 p-6 rounded-2xl flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-white/70">
               All my direct communication runs through <span className="text-[#0088CC] font-semibold">WhatsApp</span> and <span className="text-[#0088CC] font-semibold">email</span>. For the quickest setup, WhatsApp wins every time.
@@ -228,7 +221,6 @@ export default function ContactPage() {
       <footer className="bg-[#050814] py-16 px-4 md:px-8 text-sm text-white/60">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10">
           
-          {/* Brand Col */}
           <div className="md:col-span-4">
             <h3 className="font-serif text-xl font-bold text-white mb-4">Joe Kihato<span className="text-[#0088CC]">.</span></h3>
             <p className="leading-relaxed mb-6 max-w-xs text-white/50">
@@ -241,7 +233,6 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Links Columns */}
           <div className="md:col-span-2">
             <h4 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">EXPLORE</h4>
             <div className="flex flex-col gap-2.5">
@@ -263,7 +254,6 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Contact Details Grid Column */}
           <div className="md:col-span-4">
             <h4 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">GET IN TOUCH</h4>
             <div className="flex flex-col gap-4">
