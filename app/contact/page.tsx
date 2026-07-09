@@ -1,12 +1,12 @@
  import React from 'react';
-import Link from 'next/link'; // Added this import to fix the build error!
+import Link from 'next/link';
 import { MessageSquare, Phone, Mail, MapPin } from 'lucide-react';
 
 export default function ContactPage() {
   return (
     <div className="bg-[#0A1128] text-white min-h-screen font-sans selection:bg-[#0088CC]">
       
-      {/* SECTION 1: HERO CONTAINER (Split Layout with Copywriting Text & Image Profile) */}
+      {/* SECTION 1: HERO CONTAINER */}
       <section className="max-w-[1200px] mx-auto pt-16 pb-20 px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
           <span className="block text-xs font-semibold tracking-[0.2em] uppercase text-[#0088CC] mb-6">
@@ -51,9 +51,6 @@ export default function ContactPage() {
             src="/images/contact-hero.jpg" 
             alt="Joe Kihato - Marketing Strategist" 
             className="w-full h-full object-cover opacity-85"
-            onError={(e) => {
-              e.currentTarget.style.display = 'none';
-            }}
           />
           <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
             <span className="text-xs uppercase tracking-widest text-[#0088CC] font-bold mb-1">Available for Contracts</span>
@@ -62,7 +59,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* SECTION 2: GRID CONTACT CHANNELS (Three Pillar Detailed Cards) */}
+      {/* SECTION 2: GRID CONTACT CHANNELS */}
       <section className="bg-[#070B19] py-20 px-4 md:px-8 border-y border-white/5">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
           
