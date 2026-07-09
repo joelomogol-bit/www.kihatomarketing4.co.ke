@@ -1,4 +1,4 @@
-import Link from 'next/link';
+ import Link from 'next/link';
 import { Phone, Mail } from 'lucide-react';
 
 export default function Navbar() {
@@ -33,27 +33,30 @@ export default function Navbar() {
       {/* 2. MAIN NAVIGATION BAR */}
       <div className="bg-[#0A1128] text-white py-5 px-4 md:px-8 border-b border-white/5">
         <div className="max-w-[1200px] mx-auto flex justify-between items-center">
-          {/* Logo - Joe Kihato Marketing */}
+          {/* Logo */}
           <Link href="/" className="font-serif text-xl md:text-2xl font-bold tracking-tight">
             Joe Kihato<span className="text-sm font-sans font-normal tracking-wide text-white/60 block md:inline md:ml-2">Marketing</span>
           </Link>
 
-          {/* Custom Nav Links matching your request */}
+          {/* Custom Nav Links pointing to main home sections + Contact Page link */}
           <nav className="hidden md:flex items-center gap-8 text-[15px] text-white/70">
             <Link href="/" className="text-white font-medium hover:text-white transition-colors">
               Home
             </Link>
-            <Link href="#about" className="hover:text-white transition-colors">
+            <Link href="/#about" className="hover:text-white transition-colors">
               About
             </Link>
-            <Link href="#video-editing" className="hover:text-white transition-colors">
+            <Link href="/#video-editing" className="hover:text-white transition-colors">
               Video Editing
             </Link>
-            <Link href="#social-media-marketing" className="hover:text-white transition-colors">
+            <Link href="/#social-media-marketing" className="hover:text-white transition-colors">
               Social Media Marketing
             </Link>
-            <Link href="#services" className="hover:text-white transition-colors">
+            <Link href="/#services" className="hover:text-white transition-colors">
               Services
+            </Link>
+            <Link href="/contact" className="hover:text-[#0088CC] font-semibold transition-colors border-b-2 border-[#0088CC] pb-0.5">
+              Contact
             </Link>
           </nav>
 
