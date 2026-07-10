@@ -2,7 +2,7 @@
 import { DarkSection, CreamSection, Eyebrow } from '@/components/LayoutBlocks';
 import LeadMagnet from '@/components/LeadMagnet';
 import ContactForm from '@/components/ContactForm';
-import { ArrowUpRight, MessageSquare, Mail } from 'lucide-react';
+import { ArrowUpRight, MessageSquare, Mail, Layers, Megaphone, Compass } from 'lucide-react';
 import Link from 'next/link';
 
 // Forces the server to evaluate this page dynamically per request, fixing the 'cookies' build crash
@@ -30,14 +30,15 @@ export default async function HomePage() {
     supabase.from('gallery_images').select('*').order('sort_order', { ascending: true })
   ]);
 
+  // Updated fallback values with your exact phrasing adjustments
   const fallbackSettings = {
-    hero_eyebrow: 'DIGITAL MENTOR · WEB DESIGNER · DIRECT COPYWRITER',
-    hero_headline: 'Turning digital skills into real income & clear direction.',
-    hero_subheading: 'I help young people navigate the noisy online space, build responsive digital infrastructure, and master high-converting copywriting systems.',
-    about_headline: 'From peer teaching to engineering modern systems.',
-    about_body: `When you look online today, it is incredibly easy to burn months drifting through broad concepts without finding a clear, honest blueprint. I chose to break that cycle by diving directly into frontend web design and copywriting psychology.
+    hero_eyebrow: 'PERSONAL DEVELOPMENT MENTOR · DIGITAL MARKETER · WEBSITE DESIGNER',
+    hero_headline: 'Turning complex digital systems into clear direction.',
+    hero_subheading: 'I help people navigate human life challenges, deploy high-converting digital marketing systems, and build robust responsive website infrastructure.',
+    about_headline: 'From peer teaching to engineering modern human and technical systems.',
+    about_body: `When you look online today, it is incredibly easy to burn months drifting through broad concepts without finding a clear, honest blueprint. I chose to break that cycle by diving directly into web infrastructure frameworks, tactical digital marketing layout structures, and personal growth psychology.
 
-Beyond deploying responsive apps, my true focus is mentoring young people. Having started as a peer teacher after finishing high school, I understand the friction points of trying to establish real independence. I do not offer empty theory—I break down step-by-step systems designed to help you calibrate focus, clear confusion, and build technical habits that stick.`,
+Beyond deploying apps, my true focus is mentoring individuals. Having started as a peer teacher, I understand the points of friction encountered when trying to establish real independence. I break down step-by-step systems designed to help you calibrate focus, clear confusion, and build actionable lifestyle and technical habits that stick.`,
     whatsapp_number: '254116628626', 
     phone: '+254116628626',           
     email: 'joelomogol@gmail.com',
@@ -55,6 +56,7 @@ Beyond deploying responsive apps, my true focus is mentoring young people. Havin
     <main className="overflow-x-hidden">
       <DarkSection>
         <div className="pt-12 text-center md:text-left max-w-4xl">
+          {/* Updated Hero Tag with your new branding layout */}
           <span className="inline-block text-xs tracking-[0.3em] font-medium uppercase text-brand-orange mb-6">
             {currentSettings.hero_eyebrow}
           </span>
@@ -88,8 +90,8 @@ Beyond deploying responsive apps, my true focus is mentoring young people. Havin
             )) : (
               [
                 { val: '100%', label: 'Focus Driven' },
-                { val: 'PAS', label: 'Copy Framework' },
-                { val: 'UI/UX', label: 'Clean Assets' }
+                { val: 'ROI', label: 'Marketing Funnels' },
+                { val: 'UI/UX', label: 'Clean Code' }
               ].map((stat, i) => (
                 <div key={i}>
                   <div className="font-serif text-3xl md:text-5xl text-brand-orange font-bold mb-1">{stat.val}</div>
@@ -122,10 +124,9 @@ Beyond deploying responsive apps, my true focus is mentoring young people. Havin
         </div>
       </div>
 
-      {/* Optimized About Me Layout: Text on Left, Image on Right */}
+      {/* About Me Layout: Text Left, Photo Right */}
       <CreamSection id="about">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
-          {/* Left Hand Column: Copywriting & Content */}
           <div className="md:col-span-7 space-y-6">
             <div>
               <Eyebrow text="ABOUT ME" />
@@ -135,7 +136,8 @@ Beyond deploying responsive apps, my true focus is mentoring young people. Havin
             </div>
             <div className="text-brand-mutedDark font-light leading-relaxed text-base md:text-lg space-y-4">
               <p className="whitespace-pre-line">{currentSettings.about_body}</p>
-              <div className="font-serif italic font-bold pt-4 text-brand-charcoal text-xl">— Joel Omogol</div>
+              {/* Updated signature string layout to show Kihato Kuria explicitly */}
+              <div className="font-serif italic font-bold pt-4 text-brand-charcoal text-xl">— Kihato Kuria</div>
               <div className="pt-4">
                 <Link href="/about" className="inline-flex items-center gap-1 font-semibold text-brand-orange hover:underline text-sm">
                   Read my full story <ArrowUpRight size={16} />
@@ -144,12 +146,11 @@ Beyond deploying responsive apps, my true focus is mentoring young people. Havin
             </div>
           </div>
 
-          {/* Right Hand Column: Placed Profile Image */}
           <div className="md:col-span-5">
             <div className="w-full bg-brand-mutedLight/10 rounded-2xl overflow-hidden border border-brand-mutedLight/30 shadow-sm aspect-[4/5]">
               <img 
                 src="/images/joel-about.jpg" 
-                alt="Joel Omogol" 
+                alt="Kihato Kuria profile" 
                 className="w-full h-full object-cover transition duration-300 hover:scale-[1.02]"
               />
             </div>
@@ -157,10 +158,11 @@ Beyond deploying responsive apps, my true focus is mentoring young people. Havin
         </div>
       </CreamSection>
 
-      <DarkSection>
+      {/* The Services Placement Grid Section */}
+      <DarkSection id="services">
         <div className="mb-16">
-          <Eyebrow text="WHAT I DO" />
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-brand-cream">Core pillars of digital systems.</h2>
+          <Eyebrow text="SERVICES OFFERED" />
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-brand-cream">Strategic solutions engineered for impact.</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services && services.length > 0 ? services.map((service: any, idx: number) => (
@@ -171,23 +173,35 @@ Beyond deploying responsive apps, my true focus is mentoring young people. Havin
                 <p className="text-brand-mutedLight text-sm leading-relaxed mb-6 line-clamp-3">{service.description}</p>
               </div>
               <a href={service.cta_link || '#contact'} className="inline-flex items-center gap-1 text-xs text-brand-orange uppercase font-semibold tracking-wider group-hover:translate-x-1 transition-transform">
-                {service.cta_label || 'Learn more'} →
+                {service.cta_label || 'Inquire Now'} →
               </a>
             </div>
           )) : (
             [
-              { t: 'Youth Group Mentorship Assemblies', d: 'Interactive sessions unpacking focus strategies, actionable habit blueprints, and skill-acquisition paths directly to student circles.' },
-              { t: 'Responsive Frontend Engineering', d: 'Building pixel-perfect, lightning-fast modern app layouts and web products designed to structure complex user information clearly.' },
-              { t: 'Psychology-Driven Copywriting', d: 'Utilizing strict direct-response conversion funnels (PAS, AIDA) to create messaging infrastructures that capture attention quickly.' }
+              { 
+                t: 'Personal Development & Life Strategy', 
+                d: 'One-on-one and group mentoring loops unpacking focus tactics, actionable behavioral changes, and structural mindset habits to clear real-world confusion.',
+                icon: <Compass className="text-brand-orange mb-4" size={24} />
+              },
+              { 
+                t: 'Full-Funnel Digital Marketing', 
+                d: 'Engineered customer avatar profiling blueprints, targeted ad layout copy frameworks, and structural direct-response funnels designed to convert organic attention into business revenue.',
+                icon: <Megaphone className="text-brand-orange mb-4" size={24} />
+              },
+              { 
+                t: 'Responsive Website Architecture', 
+                d: 'Building custom, lightning-fast web applications and high-fidelity landing portfolios tailored with clean modern interfaces and dynamic code logic.',
+                icon: <Layers className="text-brand-orange mb-4" size={24} />
+              }
             ].map((srv, idx) => (
               <div key={idx} className="border border-brand-mutedDark p-8 rounded-2xl bg-brand-charcoal/40 flex flex-col justify-between hover:border-brand-orange/40 transition group">
                 <div>
-                  <span className="block font-serif text-brand-orange text-xl font-bold mb-4">0{idx + 1}</span>
+                  {srv.icon}
                   <h3 className="font-serif text-xl font-bold text-brand-cream mb-3">{srv.t}</h3>
-                  <p className="text-brand-mutedLight text-sm leading-relaxed mb-6">{srv.d}</p>
+                  <p className="text-brand-mutedLight text-sm leading-relaxed mb-6 font-light">{srv.d}</p>
                 </div>
                 <a href="#contact" className="inline-flex items-center gap-1 text-xs text-brand-orange uppercase font-semibold tracking-wider group-hover:translate-x-1 transition-transform">
-                  Coordinate Sync →
+                  Secure Consultation →
                 </a>
               </div>
             ))
@@ -201,7 +215,7 @@ Beyond deploying responsive apps, my true focus is mentoring young people. Havin
             <Eyebrow text="RESOURCES" />
             <h2 className="font-serif text-3xl md:text-5xl font-bold text-brand-charcoal tracking-tight">The Toolkit.</h2>
             <p className="text-brand-mutedDark text-sm md:text-base font-light leading-relaxed">
-              Accelerate execution loops with conversion-focused templates and copywriting roadmaps gathered from active systems.
+              Accelerate execution loops with conversion-focused templates and strategic planning roadmaps gathered from active systems.
             </p>
           </div>
           <div className="md:col-span-7">
