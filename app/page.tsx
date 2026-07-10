@@ -101,22 +101,6 @@ Beyond deploying responsive apps, my true focus is mentoring young people. Havin
         </div>
       </DarkSection>
 
-      {/* Fixed Image Container Container (No interactive client-side logic passed) */}
-      <div className="bg-brand-charcoal px-4 md:px-8">
-        <div className="max-w-[1100px] mx-auto">
-          <div className="w-full h-[300px] md:h-[500px] bg-brand-mutedDark rounded-2xl flex items-center justify-center border border-brand-mutedDark text-brand-mutedLight overflow-hidden relative">
-            <img 
-              src="/images/stadium-keynote.jpg" 
-              alt="Digital Mentorship and Strategy Session" 
-              className="w-full h-full object-cover opacity-80"
-            />
-            <span className="absolute bottom-4 right-4 text-[10px] uppercase tracking-widest italic text-brand-mutedLight/40 p-2 bg-brand-charcoal/60 rounded">
-              [ Infrastructure Overview Frame ]
-            </span>
-          </div>
-        </div>
-      </div>
-
       <div className="bg-brand-cream py-10 border-b border-brand-mutedLight/20 px-4 md:px-8">
         <div className="max-w-[1100px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <span className="text-xs tracking-widest font-semibold uppercase text-brand-mutedLight text-center md:text-left">
@@ -138,21 +122,36 @@ Beyond deploying responsive apps, my true focus is mentoring young people. Havin
         </div>
       </div>
 
+      {/* Optimized About Me Layout: Text on Left, Image on Right */}
       <CreamSection id="about">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          <div className="md:col-span-4">
-            <Eyebrow text="ABOUT ME" />
-            <h2 className="font-serif text-4xl md:text-5xl font-bold tracking-tight text-brand-charcoal leading-[1.1]">
-              {currentSettings.about_headline}
-            </h2>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+          {/* Left Hand Column: Copywriting & Content */}
+          <div className="md:col-span-7 space-y-6">
+            <div>
+              <Eyebrow text="ABOUT ME" />
+              <h2 className="font-serif text-4xl md:text-5xl font-bold tracking-tight text-brand-charcoal leading-[1.1] mb-6">
+                {currentSettings.about_headline}
+              </h2>
+            </div>
+            <div className="text-brand-mutedDark font-light leading-relaxed text-base md:text-lg space-y-4">
+              <p className="whitespace-pre-line">{currentSettings.about_body}</p>
+              <div className="font-serif italic font-bold pt-4 text-brand-charcoal text-xl">— Joel Omogol</div>
+              <div className="pt-4">
+                <Link href="/about" className="inline-flex items-center gap-1 font-semibold text-brand-orange hover:underline text-sm">
+                  Read my full story <ArrowUpRight size={16} />
+                </Link>
+              </div>
+            </div>
           </div>
-          <div className="md:col-span-8 space-y-6 text-brand-mutedDark font-light leading-relaxed text-base md:text-lg">
-            <p className="whitespace-pre-line">{currentSettings.about_body}</p>
-            <div className="font-serif italic font-bold pt-4 text-brand-charcoal text-xl">— Joel Omogol</div>
-            <div className="pt-6">
-              <Link href="/about" className="inline-flex items-center gap-1 font-semibold text-brand-orange hover:underline text-sm">
-                Read my full story <ArrowUpRight size={16} />
-              </Link>
+
+          {/* Right Hand Column: Placed Profile Image */}
+          <div className="md:col-span-5">
+            <div className="w-full bg-brand-mutedLight/10 rounded-2xl overflow-hidden border border-brand-mutedLight/30 shadow-sm aspect-[4/5]">
+              <img 
+                src="/images/joel-about.jpg" 
+                alt="Joel Omogol" 
+                className="w-full h-full object-cover transition duration-300 hover:scale-[1.02]"
+              />
             </div>
           </div>
         </div>
