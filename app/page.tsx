@@ -2,9 +2,11 @@
 import { DarkSection, CreamSection, Eyebrow } from '@/components/LayoutBlocks';
 import LeadMagnet from '@/components/LeadMagnet';
 import ContactForm from '@/components/ContactForm';
-import { ArrowUpRight, MessageSquare, Mail, Layers } from 'lucide-react';
+import { ArrowUpRight, MessageSquare, Mail } from 'lucide-react';
 import Link from 'next/link';
 
+// Forces the server to evaluate this page dynamically per request, fixing the 'cookies' build crash
+export const dynamic = 'force-dynamic';
 export const revalidate = 60;
 
 export default async function HomePage() {
@@ -28,7 +30,6 @@ export default async function HomePage() {
     supabase.from('gallery_images').select('*').order('sort_order', { ascending: true })
   ]);
 
-  // Personalized fallbacks tailored to your journey, identity, and frameworks
   const fallbackSettings = {
     hero_eyebrow: 'DIGITAL MENTOR · WEB DESIGNER · DIRECT COPYWRITER',
     hero_headline: 'Turning digital skills into real income & clear direction.',
@@ -46,7 +47,6 @@ Beyond deploying responsive apps, my true focus is mentoring young people. Havin
 
   const currentSettings = settings || fallbackSettings;
 
-  // Sanitizes phone format to prevent empty spacers or symbols from breaking the wa.me payload template
   const cleanWhatsappNumber = currentSettings.whatsapp_number.startsWith('0') 
     ? `254${currentSettings.whatsapp_number.slice(1)}` 
     : currentSettings.whatsapp_number;
@@ -101,7 +101,7 @@ Beyond deploying responsive apps, my true focus is mentoring young people. Havin
         </div>
       </DarkSection>
 
-      {/* Main Image Asset Showcase */}
+      {/* Fixed Image Container Container (No interactive client-side logic passed) */}
       <div className="bg-brand-charcoal px-4 md:px-8">
         <div className="max-w-[1100px] mx-auto">
           <div className="w-full h-[300px] md:h-[500px] bg-brand-mutedDark rounded-2xl flex items-center justify-center border border-brand-mutedDark text-brand-mutedLight overflow-hidden relative">
@@ -109,13 +109,9 @@ Beyond deploying responsive apps, my true focus is mentoring young people. Havin
               src="/images/stadium-keynote.jpg" 
               alt="Digital Mentorship and Strategy Session" 
               className="w-full h-full object-cover opacity-80"
-              onError={(e) => {
-                // Renders placeholder smoothly if asset text hasn't indexed into public foldering
-                e.currentTarget.style.display = 'none';
-              }}
             />
-            <span className="absolute text-xs uppercase tracking-widest italic text-brand-mutedLight/40 p-4 bg-brand-charcoal/40 rounded">
-              [ High-Fidelity Infrastructure Asset Frame ]
+            <span className="absolute bottom-4 right-4 text-[10px] uppercase tracking-widest italic text-brand-mutedLight/40 p-2 bg-brand-charcoal/60 rounded">
+              [ Infrastructure Overview Frame ]
             </span>
           </div>
         </div>
