@@ -28,22 +28,25 @@ export default async function HomePage() {
     supabase.from('gallery_images').select('*').order('sort_order', { ascending: true })
   ]);
 
+  // Personalized fallbacks tailored to your journey, identity, and frameworks
   const fallbackSettings = {
-    hero_eyebrow: 'SOCIAL MEDIA MARKETER · WEB DEVELOPER · VIDEO EDITOR',
-    hero_headline: 'Attention is the new currency.',
-    hero_subheading: 'I build high-converting digital infrastructure and content engines for modern brands.',
-    about_headline: 'Crafting digital leverage.',
-    about_body: 'Story text here...',
-    whatsapp_number: '254116628626', // Updated: Formatted fallback with Kenya routing prefix
-    phone: '+254116628626',           // Updated: Formatted phone line fallback
-    email: 'hello@example.com',
-    office_address: 'Remote / New York',
-    meetings_note: 'Meetings by appointment only.'
+    hero_eyebrow: 'DIGITAL MENTOR · WEB DESIGNER · DIRECT COPYWRITER',
+    hero_headline: 'Turning digital skills into real income & clear direction.',
+    hero_subheading: 'I help young people navigate the noisy online space, build responsive digital infrastructure, and master high-converting copywriting systems.',
+    about_headline: 'From peer teaching to engineering modern systems.',
+    about_body: `When you look online today, it is incredibly easy to burn months drifting through broad concepts without finding a clear, honest blueprint. I chose to break that cycle by diving directly into frontend web design and copywriting psychology.
+
+Beyond deploying responsive apps, my true focus is mentoring young people. Having started as a peer teacher after finishing high school, I understand the friction points of trying to establish real independence. I do not offer empty theory—I break down step-by-step systems designed to help you calibrate focus, clear confusion, and build technical habits that stick.`,
+    whatsapp_number: '254116628626', 
+    phone: '+254116628626',           
+    email: 'joelomogol@gmail.com',
+    office_address: 'Nairobi, Kenya',
+    meetings_note: 'Consultation syncs arranged via message routing only.'
   };
 
   const currentSettings = settings || fallbackSettings;
 
-  // Formatting utility to ensure standard phone syntax doesn't break the wa.me routing URL template
+  // Sanitizes phone format to prevent empty spacers or symbols from breaking the wa.me payload template
   const cleanWhatsappNumber = currentSettings.whatsapp_number.startsWith('0') 
     ? `254${currentSettings.whatsapp_number.slice(1)}` 
     : currentSettings.whatsapp_number;
@@ -64,7 +67,7 @@ export default async function HomePage() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-16">
             <a 
-              href={`https://wa.me/${cleanWhatsappNumber}`} // Fixed: Uses the cleaned up routing parameter variable
+              href={`https://wa.me/${cleanWhatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-brand-orange text-brand-cream px-8 py-4 rounded-full font-medium tracking-wide hover:bg-opacity-90 transition flex items-center justify-center gap-2 text-sm"
@@ -83,10 +86,14 @@ export default async function HomePage() {
                 <div className="text-xs uppercase tracking-wider text-brand-mutedLight">{stat.label}</div>
               </div>
             )) : (
-              ['0+', '0', '0'].map((val, i) => (
+              [
+                { val: '100%', label: 'Focus Driven' },
+                { val: 'PAS', label: 'Copy Framework' },
+                { val: 'UI/UX', label: 'Clean Assets' }
+              ].map((stat, i) => (
                 <div key={i}>
-                  <div className="font-serif text-3xl md:text-5xl text-brand-orange font-bold mb-1">{val}</div>
-                  <div className="text-xs uppercase tracking-wider text-brand-mutedLight">Metric Placeholder</div>
+                  <div className="font-serif text-3xl md:text-5xl text-brand-orange font-bold mb-1">{stat.val}</div>
+                  <div className="text-xs uppercase tracking-wider text-brand-mutedLight">{stat.label}</div>
                 </div>
               ))
             )}
@@ -94,10 +101,22 @@ export default async function HomePage() {
         </div>
       </DarkSection>
 
+      {/* Main Image Asset Showcase */}
       <div className="bg-brand-charcoal px-4 md:px-8">
         <div className="max-w-[1100px] mx-auto">
           <div className="w-full h-[300px] md:h-[500px] bg-brand-mutedDark rounded-2xl flex items-center justify-center border border-brand-mutedDark text-brand-mutedLight overflow-hidden relative">
-            <span className="text-sm uppercase tracking-widest italic">[ High-Fidelity Hero Image Asset ]</span>
+            <img 
+              src="/images/stadium-keynote.jpg" 
+              alt="Digital Mentorship and Strategy Session" 
+              className="w-full h-full object-cover opacity-80"
+              onError={(e) => {
+                // Renders placeholder smoothly if asset text hasn't indexed into public foldering
+                e.currentTarget.style.display = 'none';
+              }}
+            />
+            <span className="absolute text-xs uppercase tracking-widest italic text-brand-mutedLight/40 p-4 bg-brand-charcoal/40 rounded">
+              [ High-Fidelity Infrastructure Asset Frame ]
+            </span>
           </div>
         </div>
       </div>
@@ -113,8 +132,8 @@ export default async function HomePage() {
                 {logo.name}
               </span>
             )) : (
-              ['Brand Alpha', 'Vanguard Co', 'Apex Media'].map((l, i) => (
-                <span key={i} className="font-serif text-sm tracking-widest font-bold uppercase text-brand-mutedLight/60">
+              ['Samy Hair Stylist', "Perfume O'Clock", 'Apex Media Engine'].map((l, i) => (
+                <span key={i} className="font-serif text-sm tracking-widest font-bold uppercase text-brand-charcoal/60">
                   {l}
                 </span>
               ))
@@ -133,7 +152,7 @@ export default async function HomePage() {
           </div>
           <div className="md:col-span-8 space-y-6 text-brand-mutedDark font-light leading-relaxed text-base md:text-lg">
             <p className="whitespace-pre-line">{currentSettings.about_body}</p>
-            <div className="font-serif italic font-bold pt-4 text-brand-charcoal text-xl">— Premium Strategy Specialist</div>
+            <div className="font-serif italic font-bold pt-4 text-brand-charcoal text-xl">— Joel Omogol</div>
             <div className="pt-6">
               <Link href="/about" className="inline-flex items-center gap-1 font-semibold text-brand-orange hover:underline text-sm">
                 Read my full story <ArrowUpRight size={16} />
@@ -146,7 +165,7 @@ export default async function HomePage() {
       <DarkSection>
         <div className="mb-16">
           <Eyebrow text="WHAT I DO" />
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-brand-cream">Six ways I can help you grow.</h2>
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-brand-cream">Core pillars of digital systems.</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services && services.length > 0 ? services.map((service: any, idx: number) => (
@@ -161,9 +180,22 @@ export default async function HomePage() {
               </a>
             </div>
           )) : (
-            <div className="col-span-3 text-center py-12 text-brand-mutedLight text-sm border border-dashed border-brand-mutedDark rounded-xl">
-              Dashboard UI: Configuration metrics missing. Populating services array recommended.
-            </div>
+            [
+              { t: 'Youth Group Mentorship Assemblies', d: 'Interactive sessions unpacking focus strategies, actionable habit blueprints, and skill-acquisition paths directly to student circles.' },
+              { t: 'Responsive Frontend Engineering', d: 'Building pixel-perfect, lightning-fast modern app layouts and web products designed to structure complex user information clearly.' },
+              { t: 'Psychology-Driven Copywriting', d: 'Utilizing strict direct-response conversion funnels (PAS, AIDA) to create messaging infrastructures that capture attention quickly.' }
+            ].map((srv, idx) => (
+              <div key={idx} className="border border-brand-mutedDark p-8 rounded-2xl bg-brand-charcoal/40 flex flex-col justify-between hover:border-brand-orange/40 transition group">
+                <div>
+                  <span className="block font-serif text-brand-orange text-xl font-bold mb-4">0{idx + 1}</span>
+                  <h3 className="font-serif text-xl font-bold text-brand-cream mb-3">{srv.t}</h3>
+                  <p className="text-brand-mutedLight text-sm leading-relaxed mb-6">{srv.d}</p>
+                </div>
+                <a href="#contact" className="inline-flex items-center gap-1 text-xs text-brand-orange uppercase font-semibold tracking-wider group-hover:translate-x-1 transition-transform">
+                  Coordinate Sync →
+                </a>
+              </div>
+            ))
           )}
         </div>
       </DarkSection>
@@ -174,7 +206,7 @@ export default async function HomePage() {
             <Eyebrow text="RESOURCES" />
             <h2 className="font-serif text-3xl md:text-5xl font-bold text-brand-charcoal tracking-tight">The Toolkit.</h2>
             <p className="text-brand-mutedDark text-sm md:text-base font-light leading-relaxed">
-              Accelerate execution loops with system blueprints gathered from active production architectures.
+              Accelerate execution loops with conversion-focused templates and copywriting roadmaps gathered from active systems.
             </p>
           </div>
           <div className="md:col-span-7">
@@ -241,12 +273,12 @@ export default async function HomePage() {
               <h2 className="font-serif text-4xl md:text-5xl font-bold text-brand-cream tracking-tight">Let's build something.</h2>
             </div>
             <p className="text-brand-mutedLight font-light text-sm md:text-base leading-relaxed">
-              Have a problem to solve or an ecosystem to engineer? Drop a dynamic briefing to sync schedules.
+              Have a problem to solve, an interactive app to engineer, or a community assembly scheduling down details? Submit a strategy brief.
             </p>
             <div className="space-y-4 pt-6 text-sm text-brand-mutedLight">
               <div className="flex items-center gap-3">
                 <MessageSquare size={16} className="text-brand-orange" />
-                <span>WhatsApp Deep-link Enabled</span>
+                <span>WhatsApp Connection Active</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail size={16} className="text-brand-orange" />
