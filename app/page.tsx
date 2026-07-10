@@ -30,13 +30,13 @@ export default async function HomePage() {
     supabase.from('gallery_images').select('*').order('sort_order', { ascending: true })
   ]);
 
-  // Updated fallback values with your exact phrasing adjustments
+  // Fallback settings completely updated with your exact Google Docs text
   const fallbackSettings = {
-    hero_eyebrow: 'PERSONAL DEVELOPMENT MENTOR · DIGITAL MARKETER · WEBSITE DESIGNER',
-    hero_headline: 'Turning complex digital systems into clear direction.',
-    hero_subheading: 'I help people navigate human life challenges, deploy high-converting digital marketing systems, and build robust responsive website infrastructure.',
+    hero_eyebrow: '"Everyday Life Philosopher". Digital marketer. Website designer.',
+    hero_headline: 'Human beings living in the digital world.',
+    hero_subheading: 'I share Ideas about human being living on earth. I do digital marketing. I make websites.',
     about_headline: 'From peer teaching to engineering modern human and technical systems.',
-    about_body: `When you look online today, it is incredibly easy to burn months drifting through broad concepts without finding a clear, honest blueprint. I chose to break that cycle by diving directly into web infrastructure frameworks, tactical digital marketing layout structures, and personal growth psychology.
+    about_body: `When you look online today, it is incredibly easy to burn months drifting through broad concepts without finding a clear, honest blueprint. I chose to break that cycle by diving directly into web infrastructure frameworks, tactical digital marketing layout structures, and personal growth philosophy.
 
 Beyond deploying apps, my true focus is mentoring individuals. Having started as a peer teacher, I understand the points of friction encountered when trying to establish real independence. I break down step-by-step systems designed to help you calibrate focus, clear confusion, and build actionable lifestyle and technical habits that stick.`,
     whatsapp_number: '254116628626', 
@@ -56,13 +56,15 @@ Beyond deploying apps, my true focus is mentoring individuals. Having started as
     <main className="overflow-x-hidden">
       <DarkSection>
         <div className="pt-12 text-center md:text-left max-w-4xl">
-          {/* Updated Hero Tag with your new branding layout */}
-          <span className="inline-block text-xs tracking-[0.3em] font-medium uppercase text-brand-orange mb-6">
+          {/* Top Sub-tags updated from Google Docs */}
+          <span className="inline-block text-xs tracking-[0.2em] font-medium uppercase text-brand-orange mb-6">
             {currentSettings.hero_eyebrow}
           </span>
-          <h1 className="font-serif text-5xl md:text-7xl font-bold tracking-tight text-brand-cream leading-[1.05] mb-8">
+          {/* Main Headline updated from Google Docs */}
+          <h1 className="font-serif text-5xl md:text-7xl font-bold tracking-tight text-brand-cream leading-[1.1] mb-8">
             {currentSettings.hero_headline}
           </h1>
+          {/* Paragraph copy updated from Google Docs */}
           <p className="text-brand-mutedLight text-lg md:text-xl font-light max-w-2xl leading-relaxed mb-10">
             {currentSettings.hero_subheading}
           </p>
@@ -124,7 +126,7 @@ Beyond deploying apps, my true focus is mentoring individuals. Having started as
         </div>
       </div>
 
-      {/* About Me Layout: Text Left, Photo Right */}
+      {/* About Me Section */}
       <CreamSection id="about">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
           <div className="md:col-span-7 space-y-6">
@@ -136,7 +138,6 @@ Beyond deploying apps, my true focus is mentoring individuals. Having started as
             </div>
             <div className="text-brand-mutedDark font-light leading-relaxed text-base md:text-lg space-y-4">
               <p className="whitespace-pre-line">{currentSettings.about_body}</p>
-              {/* Updated signature string layout to show Kihato Kuria explicitly */}
               <div className="font-serif italic font-bold pt-4 text-brand-charcoal text-xl">— Kihato Kuria</div>
               <div className="pt-4">
                 <Link href="/about" className="inline-flex items-center gap-1 font-semibold text-brand-orange hover:underline text-sm">
@@ -158,7 +159,7 @@ Beyond deploying apps, my true focus is mentoring individuals. Having started as
         </div>
       </CreamSection>
 
-      {/* The Services Placement Grid Section */}
+      {/* Services Section */}
       <DarkSection id="services">
         <div className="mb-16">
           <Eyebrow text="SERVICES OFFERED" />
@@ -179,18 +180,18 @@ Beyond deploying apps, my true focus is mentoring individuals. Having started as
           )) : (
             [
               { 
-                t: 'Personal Development & Life Strategy', 
-                d: 'One-on-one and group mentoring loops unpacking focus tactics, actionable behavioral changes, and structural mindset habits to clear real-world confusion.',
+                t: 'Everyday Life Philosophy & Mentorship', 
+                d: 'One-on-one and group strategy loops analyzing human life challenges on earth. Deep guidance tailored to fix focus limits, break down execution anxiety, and design purposeful workflows.',
                 icon: <Compass className="text-brand-orange mb-4" size={24} />
               },
               { 
-                t: 'Full-Funnel Digital Marketing', 
-                d: 'Engineered customer avatar profiling blueprints, targeted ad layout copy frameworks, and structural direct-response funnels designed to convert organic attention into business revenue.',
+                t: 'Digital Marketing Infrastructure', 
+                d: 'Engineered target positioning architectures, automated asset loops, and custom direct-response copywriting setups to turn modern human attention directly into clear business revenue.',
                 icon: <Megaphone className="text-brand-orange mb-4" size={24} />
               },
               { 
-                t: 'Responsive Website Architecture', 
-                d: 'Building custom, lightning-fast web applications and high-fidelity landing portfolios tailored with clean modern interfaces and dynamic code logic.',
+                t: 'Custom Website Design & Engineering', 
+                d: 'Designing fast, accessible, and responsive website builds tailored with crisp modern user layouts, fully optimized to map out structural business systems cleanly.',
                 icon: <Layers className="text-brand-orange mb-4" size={24} />
               }
             ].map((srv, idx) => (
